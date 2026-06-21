@@ -21,17 +21,17 @@ export default function LandingPage() {
       {/* ── Navbar ────────────────────────────────────────────── */}
       <nav className="fixed top-0 w-full z-50 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-light)] transition-all">
         <div className="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between">
-          <div className="flex items-center gap-2">
-            <img src={LogoSVG} alt="TinexusFlow Logo" className="w-7 h-7" />
-            <span className="font-bold text-lg tracking-tight text-[var(--text-primary)]">
-              TinexusFlow<span className="text-[var(--text-tertiary)] font-normal ml-0.5">Engine</span>
+          <div className="flex items-center gap-2 shrink-0">
+            <img src={LogoSVG} alt="TinexusFlow Logo" className="w-6 h-6 sm:w-7 sm:h-7" />
+            <span className="font-bold text-base sm:text-lg tracking-tight text-[var(--text-primary)]">
+              TinexusFlow<span className="text-[var(--text-tertiary)] font-normal ml-0.5 hidden sm:inline">Engine</span>
             </span>
           </div>
-          <div className="flex items-center gap-4">
-            <Link to="/app" className="text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors hidden sm:block">
-              Open App Demo
+          <div className="flex items-center gap-3 sm:gap-4">
+            <Link to="/app" className="text-xs sm:text-sm font-medium text-[var(--text-secondary)] hover:text-[var(--text-primary)] transition-colors whitespace-nowrap">
+              App Demo
             </Link>
-            <a href="#waitlist" className="px-4 py-2 bg-[var(--accent-primary)] hover:bg-[var(--accent-hover)] text-white text-sm font-medium rounded-lg transition-all shadow-sm">
+            <a href="#waitlist" className="px-3 py-1.5 sm:px-4 sm:py-2 bg-[var(--accent-primary)] hover:bg-[var(--accent-hover)] text-white text-xs sm:text-sm font-medium rounded-lg transition-all shadow-sm whitespace-nowrap">
               Join Waitlist
             </a>
           </div>
