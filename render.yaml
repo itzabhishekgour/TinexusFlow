@@ -1,11 +1,10 @@
 services:
   - type: web
     name: tinexusflow-backend
-    env: java
+    runtime: docker
     rootDir: backend
+    dockerfilePath: ./Dockerfile
     plan: free
-    buildCommand: ./gradlew build -x test
-    startCommand: java -jar build/libs/*.jar
     envVars:
       - key: DB_URL
         sync: false
