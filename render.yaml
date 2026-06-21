@@ -1,0 +1,33 @@
+services:
+  - type: web
+    name: tinexusflow-backend
+    env: java
+    rootDir: backend
+    plan: free
+    buildCommand: ./gradlew build -x test
+    startCommand: java -jar build/libs/*.jar
+    envVars:
+      - key: DB_URL
+        sync: false
+      - key: DB_USERNAME
+        sync: false
+      - key: DB_PASSWORD
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false
+
+  - type: web
+    name: tinexusflow-frontend
+    env: static
+    rootDir: frontend
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_BASE_URL
+        fromService:
+          type: web
+          name: tinexusflow-backend
+          envVarKey: RENDER_EXTERNAL_URL
