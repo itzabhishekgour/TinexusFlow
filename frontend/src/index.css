@@ -1,0 +1,162 @@
+@import "tailwindcss";
+
+@theme {
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-elevated: var(--bg-elevated);
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-tertiary: var(--text-tertiary);
+  --color-accent-primary: var(--accent-primary);
+  --color-accent-hover: var(--accent-hover);
+  --color-accent-subtle: var(--accent-subtle);
+  --color-border-light: var(--border-light);
+  --color-border-medium: var(--border-medium);
+  --color-success: var(--success);
+  --color-error: var(--error);
+  --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-serif: "Tiempos", "Georgia", serif;
+}
+
+@layer base {
+  :root {
+    /* Backgrounds - Neutral/Warm */
+    --bg-primary: #FAF9F5;
+    --bg-secondary: #F0EEE6;
+    --bg-elevated: #FFFFFF;
+
+    /* Text */
+    --text-primary: #1F1E1D;
+    --text-secondary: #6B6A66;
+    --text-tertiary: #9C9A94;
+
+    /* Accent - Rust/Orange */
+    --accent-primary: #C96442;
+    --accent-hover: #B5573A;
+    --accent-subtle: #F3E4DC;
+
+    /* Borders */
+    --border-light: #E5E3DA;
+    --border-medium: #D4D2C7;
+
+    /* Semantic */
+    --success: #5A8A6B;
+    --error: #C25450;
+  }
+
+  [data-theme="dark"] {
+    --bg-primary: #1E1D1B;
+    --bg-secondary: #2A2825;
+    --bg-elevated: #363430;
+
+    --text-primary: #E8E6E1;
+    --text-secondary: #A3A19C;
+    --text-tertiary: #7D7B75;
+
+    --accent-primary: #D97554;
+    --accent-hover: #E88C6F;
+    --accent-subtle: #4D281C;
+
+    --border-light: #4A4843;
+    --border-medium: #615E58;
+  }
+
+  [data-theme="light"] {
+    --bg-primary: #FAF9F5;
+    --bg-secondary: #F0EEE6;
+    --bg-elevated: #FFFFFF;
+
+    --text-primary: #1F1E1D;
+    --text-secondary: #6B6A66;
+    --text-tertiary: #9C9A94;
+
+    --accent-primary: #C96442;
+    --accent-hover: #B5573A;
+    --accent-subtle: #F3E4DC;
+
+    --border-light: #E5E3DA;
+    --border-medium: #D4D2C7;
+  }
+
+  body {
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    overflow-x: hidden;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+}
+
+/* Custom Scrollbars - Clean/Minimal */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-corner {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-medium);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
+
+/* Hide scrollbar but keep functionality */
+.hide-scrollbar {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* React Flow customizations - Minimal Light Theme */
+.react-flow__background {
+  background-color: var(--bg-primary) !important;
+}
+
+.react-flow__minimap {
+  background-color: var(--bg-elevated) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 8px !important;
+}
+
+.react-flow__controls {
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06) !important;
+  border: 1px solid var(--border-light) !important;
+  border-radius: 8px !important;
+  overflow: hidden;
+  background-color: var(--bg-elevated) !important;
+}
+
+.react-flow__controls-button {
+  background-color: var(--bg-elevated) !important;
+  border-bottom: 1px solid var(--border-light) !important;
+  color: var(--text-secondary) !important;
+  fill: var(--text-secondary) !important;
+}
+
+.react-flow__controls-button:hover {
+  background-color: var(--bg-secondary) !important;
+}
+
+.react-flow__edge-path {
+  stroke: var(--border-medium);
+  stroke-width: 2;
+  transition: stroke 0.2s ease, stroke-width 0.2s ease;
+}
+
+.react-flow__edge.active .react-flow__edge-path {
+  stroke: var(--accent-primary) !important;
+  stroke-width: 3;
+}
+
+/* Hide default attribution for cleaner visual dashboard */
+.react-flow__attribution {
+  display: none !important;
+}
