@@ -14,7 +14,7 @@ export const useFlowStore = create((set, get) => ({
     if (!conversationId) return;
 
     try {
-      const response = await fetch(`/api/flow/tree/${conversationId}`);
+      const response = await fetch(`${API_BASE_URL}/api/flow/tree/${conversationId}`);
       if (!response.ok) throw new Error('Failed to fetch conversation tree');
 
       const data = await response.json();

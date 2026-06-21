@@ -142,7 +142,7 @@ export const useChatStore = create((set, get) => ({
 
   deleteConversation: async (id) => {
     try {
-      const response = await fetch(`/api/chat/conversations/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/chat/conversations/${id}`, {
         method: 'DELETE',
       });
       if (!response.ok) throw new Error('Failed to delete conversation');
@@ -180,7 +180,7 @@ export const useChatStore = create((set, get) => ({
     });
 
     try {
-      const response = await fetch(`/api/chat/conversations/${id}`, {
+      const response = await fetch(`${API_BASE_URL}/api/chat/conversations/${id}`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
